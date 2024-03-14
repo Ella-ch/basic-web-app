@@ -26,6 +26,20 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  if (query.toLowerCase().includes("largest")) {
+    const numbers = query.split(" ").map(Number);
+    let largest = numbers[0];
+    if (numbers[1] > largest) {
+        largest = numbers[1];
+    }
+    if (numbers[2] > largest) {
+        largest = numbers[2];
+    }
+    return (
+      largest.toString()
+    );
+  }
+
 
   return "";
 }
