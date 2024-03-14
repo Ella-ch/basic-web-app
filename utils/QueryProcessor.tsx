@@ -133,14 +133,16 @@ export default function QueryProcessor(query: string): string {
     const regex = /\d+/g;
     const numbers = [];
     let match;
+    const res = [];
     while ((match = regex.exec(query)) !== null) {
       numbers.push(parseInt(match[0], 10));
     }
     for (let num of numbers) {
       if (isPrime(num)) {
-        return num.toString();
+        res.push(num)
       }
     }
+    return res.toString();
   }
 
 

@@ -49,4 +49,12 @@ describe("QueryProcessor", () => {
             "9"
           ));
     });
+
+    test('should return prime', () => {
+        const query = "prime 2, 16, 12, 21?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "2"
+          ));
+    });
 });
