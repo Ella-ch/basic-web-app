@@ -19,15 +19,10 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.toLowerCase().includes("1 plus 18?")) {
+  if (query.toLowerCase().includes("plus")) {
+    const numbers = query.split(" ").map(Number);
     return (
-      "19"
-    );
-  }
-
-  if (query.toLowerCase().includes("78 plus 88?")) {
-    return (
-      "166"
+      numbers[0]+numbers[1].toString()
     );
   }
 
