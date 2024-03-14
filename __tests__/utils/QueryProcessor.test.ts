@@ -33,4 +33,12 @@ describe("QueryProcessor", () => {
             "3"
           ));
     });
+
+    test('should return square and cube', () => {
+        const query = "largest 1 2 3";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "3"
+          ));
+    });
 });

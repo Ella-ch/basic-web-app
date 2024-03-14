@@ -82,7 +82,8 @@ export default function QueryProcessor(query: string): string {
     }
     for (let num of numbers) {
       const sqrt = Math.sqrt(num);
-      if (Number.isInteger(sqrt)) {
+      const cbrt = Math.cbrt(num);
+      if (Number.isInteger(sqrt) && Number.isInteger(cbrt)) {
         return num.toString();
       }
     }
