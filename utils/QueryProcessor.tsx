@@ -57,7 +57,14 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("largest")) {
-    const numbers = query.split(" ").map(Number);
+
+    const regex = /\d+/g;
+    const numbers = [];
+    let match;
+    while ((match = regex.exec(query)) !== null) {
+      numbers.push(parseInt(match[0], 10));
+    }
+
     let largest = numbers[0];
     if (numbers[1] > largest) {
         largest = numbers[1];
