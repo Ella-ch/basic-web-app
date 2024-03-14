@@ -57,25 +57,22 @@ export default function QueryProcessor(query: string): string {
   }
 
   if (query.toLowerCase().includes("largest")) {
-
-    const regex = /\d+/g;
+    const regex = /\d+/g; // Corrected regular expression
     const numbers = [];
     let match;
     while ((match = regex.exec(query)) !== null) {
       numbers.push(parseInt(match[0], 10));
     }
-
     let largest = numbers[0];
-    if (numbers[1] > largest) {
-        largest = numbers[1];
+    if (numbers.length > 1 && numbers[1] > largest) {
+      largest = numbers[1];
     }
-    if (numbers[2] > largest) {
-        largest = numbers[2];
+    if (numbers.length > 2 && numbers[2] > largest) {
+      largest = numbers[2];
     }
-    return (
-      largest.toString()
-    );
+    return largest.toString();
   }
+
 
 
   return "";

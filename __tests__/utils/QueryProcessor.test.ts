@@ -25,4 +25,12 @@ describe("QueryProcessor", () => {
             "My andrewID is xinyic2."
           ));
     });
+
+    test('should return largest', () => {
+        const query = "largest 1 2 3";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "3"
+          ));
+    });
 });
