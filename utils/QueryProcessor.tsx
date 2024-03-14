@@ -73,6 +73,21 @@ export default function QueryProcessor(query: string): string {
     return largest.toString();
   }
 
+  if (query.toLowerCase().includes("square and cube")) {
+    const regex = /\d+/g;
+    const numbers = [];
+    let match;
+    while ((match = regex.exec(query)) !== null) {
+      numbers.push(parseInt(match[0], 10));
+    }
+    for (let num of numbers) {
+      const sqrt = Math.sqrt(num);
+      if (Number.isInteger(sqrt)) {
+        return num.toString();
+      }
+    }
+  }
+
 
 
   return "";
