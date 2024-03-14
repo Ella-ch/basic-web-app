@@ -31,6 +31,30 @@ export default function QueryProcessor(query: string): string {
       (numbers[0]+numbers[1]).toString()
     );
   }
+  if (query.toLowerCase().includes("multiplied")) {
+    
+    const regex = /\d+/g;
+    const numbers = [];
+    let match;
+    while ((match = regex.exec(query)) !== null) {
+      numbers.push(parseInt(match[0], 10));
+    }
+    return (
+      (numbers[0]*numbers[1]).toString()
+    );
+  }
+  if (query.toLowerCase().includes("divided")) {
+    
+    const regex = /\d+/g;
+    const numbers = [];
+    let match;
+    while ((match = regex.exec(query)) !== null) {
+      numbers.push(parseInt(match[0], 10));
+    }
+    return (
+      (numbers[0]/numbers[1]).toString()
+    );
+  }
 
   if (query.toLowerCase().includes("largest")) {
     const numbers = query.split(" ").map(Number);
