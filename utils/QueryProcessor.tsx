@@ -1,3 +1,9 @@
+function hasTwoPlusWords(str) {
+  const regex = /\bplus\b/g;
+  const matches = str.match(regex);
+  return matches && matches.length >= 2;
+}
+
 export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("shakespeare")) {
     return (
@@ -29,6 +35,19 @@ export default function QueryProcessor(query: string): string {
     }
     return (
       (numbers[0]+numbers[1]).toString()
+    );
+  }
+
+  if (query.toLowerCase().includes("minus")) {
+    
+    const regex = /\d+/g;
+    const numbers = [];
+    let match;
+    while ((match = regex.exec(query)) !== null) {
+      numbers.push(parseInt(match[0], 10));
+    }
+    return (
+      (numbers[0]-numbers[1]).toString()
     );
   }
   if (query.toLowerCase().includes("multiplied")) {
