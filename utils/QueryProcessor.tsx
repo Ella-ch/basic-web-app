@@ -1,10 +1,7 @@
-function hasTwoPlusWords(str) {
-  const regex = /\bplus\b/g;
-  const matches = str.match(regex);
-  return matches && matches.length >= 2;
-}
+
 
 export default function QueryProcessor(query: string): string {
+  
   if (query.toLowerCase().includes("shakespeare")) {
     return (
       "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -117,6 +114,30 @@ export default function QueryProcessor(query: string): string {
       const sqrt = Math.sqrt(num);
       const cbrt = Math.cbrt(num);
       if (Number.isInteger(sqrt) && Number.isInteger(cbrt)) {
+        return num.toString();
+      }
+    }
+  }
+
+  function isPrime(num: number): boolean {
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+  }
+
+  if (query.toLowerCase().includes("prime")) {
+    const regex = /\d+/g;
+    const numbers = [];
+    let match;
+    while ((match = regex.exec(query)) !== null) {
+      numbers.push(parseInt(match[0], 10));
+    }
+    for (let num of numbers) {
+      if (isPrime(num)) {
         return num.toString();
       }
     }
