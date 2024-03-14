@@ -28,7 +28,7 @@ export default function QueryProcessor(query: string): string {
       numbers.push(parseInt(match[0], 10));
     }
     return (
-      numbers[0]+numbers[1].toString()
+      (numbers[0]+numbers[1]).toString()
     );
   }
 
